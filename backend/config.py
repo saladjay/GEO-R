@@ -29,14 +29,14 @@ _R_CFG = _read_config_r()
 class Settings:
     DEBUG: bool = True
 
-    DB_HOST: str = "1.117.188.4"
-    DB_USER: str = "root"
-    DB_PASSWORD: str = "3POKJzGCs3JNdhu"
-    DB_NAME: str = "geo"
-    DB_PORT: int = 3306
+    DB_HOST: str = os.getenv("DB_HOST", "YOUR_DB_HOST")
+    DB_USER: str = os.getenv("DB_USER", "root")
+    DB_PASSWORD: str = os.getenv("DB_PASSWORD", "YOUR_DB_PASSWORD")
+    DB_NAME: str = os.getenv("DB_NAME", "geo")
+    DB_PORT: int = int(os.getenv("DB_PORT", "3306"))
     DB_CHARSET: str = "utf8mb4"
 
-    JWT_SECRET: str = "change-me-in-production"
+    JWT_SECRET: str = os.getenv("JWT_SECRET", "change-me-in-production")
     JWT_ALGORITHM: str = "HS256"
     JWT_ACCESS_EXPIRE_MINUTES: int = 15
     JWT_REFRESH_EXPIRE_DAYS: int = 30
@@ -44,10 +44,10 @@ class Settings:
     AUTH_DISABLED: bool = True
     DEV_USER_ID: int = 1
 
-    LLM_URL: str = _R_CFG.get("llm_url") or os.getenv("LLM_URL", "http://1.117.188.4:5200/wenxinqianfan")
-    WENXIN_API_KEY: str = "z9LQiF34PzazRt3Bhenu0ey9"
-    WENXIN_SECRET_KEY: str = "n9FLmBesVrDy9V8qlStA8b0VkgujXoZl"
-    OFFICIAL_MEDIA_EXCEL: str = (Path(__file__).resolve().parents[1] / "2026年网站媒体及官方自媒体报价-Q2.xls").as_posix()
+    LLM_URL: str = _R_CFG.get("llm_url") or os.getenv("LLM_URL", "http://YOUR_LLM_HOST:5200/wenxinqianfan")
+    WENXIN_API_KEY: str = os.getenv("WENXIN_API_KEY", "YOUR_WENXIN_API_KEY")
+    WENXIN_SECRET_KEY: str = os.getenv("WENXIN_SECRET_KEY", "YOUR_WENXIN_SECRET_KEY")
+    OFFICIAL_MEDIA_EXCEL: str = (Path(__file__).resolve().parents[1] / "data" / "2026年网站媒体及官方自媒体报价-Q2.xls").as_posix()
     OFFICIAL_PUBLISH_PARTNER_URL: str = os.getenv("OFFICIAL_PUBLISH_PARTNER_URL", "")
     OFFICIAL_PUBLISH_PARTNER_TOKEN: str = os.getenv("OFFICIAL_PUBLISH_PARTNER_TOKEN", "")
 

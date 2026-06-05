@@ -5,11 +5,11 @@ geo_config <- list(
   app_dir = app_dir,
   llm_icon_dir = file.path(app_dir, "icons"),
   llm_svg_dir = file.path(app_dir, "svg"),
-  llm_url = "http://1.117.188.4:5200/wenxinqianfan",
+  llm_url = "http://YOUR_LLM_HOST:5200/wenxinqianfan",
   db_config = list(
-    host = "1.117.188.4",
+    host = "YOUR_DB_HOST",
     user = "root",
-    password = "3POKJzGCs3JNdhum",
+    password = "YOUR_DB_PASSWORD",
     dbname = "geo",
     charset = "utf8mb4",
     port = 3306
